@@ -30,13 +30,13 @@ import (
 	"github.com/prometheus/common/expfmt"
 	"github.com/stretchr/testify/assert"
 
-	cfg "github.com/vmware/vmware-go-kcl-v2/clientlibrary/config"
-	"github.com/vmware/vmware-go-kcl-v2/clientlibrary/metrics"
-	"github.com/vmware/vmware-go-kcl-v2/clientlibrary/metrics/cloudwatch"
-	"github.com/vmware/vmware-go-kcl-v2/clientlibrary/metrics/prometheus"
-	wk "github.com/vmware/vmware-go-kcl-v2/clientlibrary/worker"
-	"github.com/vmware/vmware-go-kcl-v2/logger"
-	zaplogger "github.com/vmware/vmware-go-kcl-v2/logger/zap"
+	cfg "github.com/komealy/vmware-go-kcl-v2/clientlibrary/config"
+	"github.com/komealy/vmware-go-kcl-v2/clientlibrary/metrics"
+	"github.com/komealy/vmware-go-kcl-v2/clientlibrary/metrics/cloudwatch"
+	"github.com/komealy/vmware-go-kcl-v2/clientlibrary/metrics/prometheus"
+	wk "github.com/komealy/vmware-go-kcl-v2/clientlibrary/worker"
+	"github.com/komealy/vmware-go-kcl-v2/logger"
+	zaplogger "github.com/komealy/vmware-go-kcl-v2/logger/zap"
 )
 
 const (

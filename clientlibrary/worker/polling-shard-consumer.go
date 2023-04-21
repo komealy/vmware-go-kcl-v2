@@ -41,9 +41,9 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/kinesis"
 	"github.com/aws/aws-sdk-go-v2/service/kinesis/types"
 
-	chk "github.com/vmware/vmware-go-kcl-v2/clientlibrary/checkpoint"
-	kcl "github.com/vmware/vmware-go-kcl-v2/clientlibrary/interfaces"
-	"github.com/vmware/vmware-go-kcl-v2/clientlibrary/metrics"
+	chk "github.com/komealy/vmware-go-kcl-v2/clientlibrary/checkpoint"
+	kcl "github.com/komealy/vmware-go-kcl-v2/clientlibrary/interfaces"
+	"github.com/komealy/vmware-go-kcl-v2/clientlibrary/metrics"
 )
 
 const (

@@ -20,7 +20,7 @@ This is a rough outline of what a contributor's workflow looks like:
 Example:
 
 ``` shell
-git remote add upstream https://github.com/vmware/@(project).git
+git remote add upstream https://github.com/komealy/@(project).git
 git checkout -b my-new-feature main
 git commit -a
 git push origin my-new-feature
