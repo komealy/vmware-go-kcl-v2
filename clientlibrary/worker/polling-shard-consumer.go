@@ -178,11 +178,13 @@ func (sc *PollingShardConsumer) getRecords() error {
 			}
 			if err == errLocalTPSExceeded {
 				log.Debugf("localTPSExceededError so sleep for a second")
+				sc.mService.IncrLocalTPSBackoffs(sc.shard.ID, 1)
 				sc.waitASecond(sc.currTime)
 				continue
 			}
 			if err == errMaxBytesExceeded {
 				log.Debugf("maxBytesExceededError so sleep for %+v seconds", coolDownPeriod)
+				sc.mService.IncrMaxBytesBackoffs(sc.shard.ID, 1)
 				time.Sleep(time.Duration(coolDownPeriod) * time.Second)
 				continue
 			}
@@ -200,9 +202,11 @@ func (sc *PollingShardConsumer) getRecords() error {
 				}
 				// exponential backoff
 				// https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff
+				sc.mService.IncrThrottlingBackoffs(sc.shard.ID, 1)
 				time.Sleep(time.Duration(math.Exp2(float64(retriedErrors))*100) * time.Millisecond)
 				continue
 			}
+			sc.mService.IncrGetRecordsErrors(sc.shard.ID, 1)
 			log.Errorf("Error getting records from Kinesis that cannot be retried: %+v Request: %s", err, getRecordsArgs)
 			return err
 		}
