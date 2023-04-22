@@ -128,6 +128,10 @@ func (p *MonitoringService) Init(appName, streamName, workerID string) error {
 		p.leaseRenewals,
 		p.getRecordsTime,
 		p.processRecordsTime,
+		p.localTPSBackoffs,
+		p.maxBytesBackoffs,
+		p.throttlingBackoffs,
+		p.getRecordsErrors,
 	}
 	for _, metric := range metrics {
 		err := prom.Register(metric)
